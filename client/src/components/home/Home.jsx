@@ -27,7 +27,7 @@ const Home=()=>{
     }, [{title}, {description}])
 
     const loadDisplayAPI=async()=>{
-        const result=await axios.post("http://localhost:4000/display",{user_id:localStorage.getItem('userEmail')})
+        const result=await axios.post("https://todoapp-50pg.onrender.com",{user_id:localStorage.getItem('userEmail')})
         setTodos(result.data);
     }
 

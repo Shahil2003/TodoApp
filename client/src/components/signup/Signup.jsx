@@ -24,7 +24,7 @@ const Signup = () => {
     }
 
     const send = async() => {
-     const result = await axios.post('http://localhost:4000/signup',{username:username,email:email, password:password})
+     const result = await axios.post('https://todoapp-50pg.onrender.com/signup',{username:username,email:email, password:password})
      if(result.data.status===false){
       setErr("username already exists")
      }else{

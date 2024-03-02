@@ -27,7 +27,7 @@ const Login = () => {
    
    const send = async() => {
        
-     const result = await axios.post('http://localhost:4000/login',{ email,password})
+     const result = await axios.post('https://todoapp-50pg.onrender.com/login',{ email,password})
      if(result.data.status==false){
        setErr('invalid user')
      }else{
