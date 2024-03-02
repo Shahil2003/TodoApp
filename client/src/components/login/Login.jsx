@@ -56,7 +56,7 @@ const Login = () => {
            <Input id='password' onChange={handlePassword} type="password" />
            <Button onClick={send} variant='contained'>Submit</Button>
            <Typography sx={{color:"red"}} variant='h5'>{err}</Typography>
-           <a style={{paddingLeft:120}} href="http://localhost:3000/signup">signup</a>
+           <a style={{paddingLeft:120}} href="https://todo-app-lac-tau.vercel.app/signup">signup</a>
          </Stack>
      </Paper>
    </Box>

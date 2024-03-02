@@ -55,7 +55,7 @@ const Home=()=>{
     }
 
     const submitToDo=async()=>{
-        const Todo=await axios.post('http://localhost:4000/newtodo',{taskId:todos.length+1, user_id:localStorage.getItem('userEmail'), title:title, description:description, isDone:isDone})
+        const Todo=await axios.post('https://todoapp-50pg.onrender.com/newtodo',{taskId:todos.length+1, user_id:localStorage.getItem('userEmail'), title:title, description:description, isDone:isDone})
         if(Todo.data.flag===1){
             alert("Please enter a title and description for the todo")
         }else if(Todo.data.flag===2){
@@ -73,7 +73,7 @@ const Home=()=>{
 
     function editTask(id){
         const edit=async()=>{
-           const todo=await axios.put(`http://localhost:4000/idTodo/${id}`)
+           const todo=await axios.put(`https://todoapp-50pg.onrender.com/idTodo/${id}`)
            setTaskMode(todo.data.mode)
            taskId=todo.data.id
            setCurrentTaskId(todo.data.id)
@@ -87,7 +87,7 @@ const Home=()=>{
     }
 
     const editTodo=async()=>{
-        const currentTodo=await axios.put(`http://localhost:4000/edit/${currentTaskId}`, {taskId:currentTaskId, title:title, description:description})
+        const currentTodo=await axios.put(`https://todoapp-50pg.onrender.com/edit/${currentTaskId}`, {taskId:currentTaskId, title:title, description:description})
         if(currentTodo.data.completed=='true'){
             alert("Todo successfully edited!")
             setTaskMode('add')
@@ -100,7 +100,7 @@ const Home=()=>{
 
     function markTask(id){
         const markAsCompleted=async()=>{
-           await axios.put(`http://localhost:4000/completed/${id}`, {isDone:true})
+           await axios.put(`https://todoapp-50pg.onrender.com/completed/${id}`, {isDone:true})
         }
         return()=>{
             markAsCompleted()
@@ -109,7 +109,7 @@ const Home=()=>{
     
     function deleteTask(id){
         const deleteTodo=async()=>{
-            const todo=await axios.delete(`http://localhost:4000/delete/${id}`, {deleted:true})
+            const todo=await axios.delete(`https://todoapp-50pg.onrender.com/delete/${id}`, {deleted:true})
             if(todo.data.deleted=='true'){
                 taskId=todos.length
             }else{
